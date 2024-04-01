@@ -1,13 +1,16 @@
-'use client'
+"use client";
 
-import { ThemeProvider } from "next-themes"
+import { ThemeProvider } from "next-themes";
+import { Suspense } from "react";
 
-export default function Providers({children}) {
+export default function Providers({ children }) {
   return (
-    <ThemeProvider defaultTheme="system" attribute="class">
+    <Suspense>
+      <ThemeProvider defaultTheme="system" attribute="class">
         <div className="text-gray-700 dark:text-gray-200 dark:bg-gray-700 min-h-screen select-none transition-colors duration-300">
-            {children}
+          {children}
         </div>
-    </ThemeProvider>
-  )
+      </ThemeProvider>
+    </Suspense>
+  );
 }
